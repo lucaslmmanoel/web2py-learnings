@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> not all arguments converted during string formatting"
+p3
+sS'layer'
+p4
+S'/home/lucas/Documents/web2py-learnings/web2py/applications/rent_moovies/controllers/default.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x7eff0d261e30, file "/home/lucas/Documents/web2py-learnings/web2py/applications/rent_moovies/controllers/default.py", line 8>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/lucas/Documents/web2py-learnings/web2py/gluon/restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "/home/lucas/Documents/web2py-learnings/web2py/applications/rent_moovies/controllers/default.py", line 71, in <module>\n  File "/home/lucas/Documents/web2py-learnings/web2py/gluon/globals.py", line 421, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/lucas/Documents/web2py-learnings/web2py/applications/rent_moovies/controllers/default.py", line 62, in new_moovie\n    session.flash = \'Novo Filme inserido: $s\' % form.vars.titulo\nTypeError: not all arguments converted during string formatting\n'
+p11
+s.

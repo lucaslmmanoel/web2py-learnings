@@ -53,3 +53,32 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
+timestamp: 2018-08-13T11:18:57.901852
+CREATE TABLE "filmes"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "titulo" CHAR(512),
+    "lancamento" INTEGER,
+    "duracao" INTEGER,
+    "generos" TEXT,
+    "diretor" CHAR(512),
+    "capa" CHAR(512)
+);
+success!
+timestamp: 2018-08-13T11:18:58.110142
+CREATE TABLE "items_estoque"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "filme" INTEGER REFERENCES "filmes" ("id") ON DELETE CASCADE  ,
+    "quantidade" INTEGER,
+    "preco" DOUBLE
+);
+success!
+timestamp: 2018-08-13T11:18:58.231139
+CREATE TABLE "locacoes"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "filmes" TEXT,
+    "cliente" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "data_locacao" TIMESTAMP,
+    "data_devolucao" TIMESTAMP,
+    "multa" DOUBLE
+);
+success!

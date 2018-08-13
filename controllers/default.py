@@ -56,3 +56,14 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+def new_moovie():
+    form = SQLFORM(Filmes)
+    if form.process().accepted:
+        session.flash = 'Novo Filme inserido: %s' % form.vars.titulo
+        redirect(URL('new_moovie'))
+    elif form.errors:
+        response.flash = 'Algum erro encontrado no formulário'
+    else:
+        response.flash = 'Preencha o formulário'
+
+    return dict(form=form)
