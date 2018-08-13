@@ -67,3 +67,15 @@ def new_moovie():
         response.flash = 'Preencha o formulário'
 
     return dict(form=form)
+
+def new_location():
+    form = SQLFORM(Locacao)
+    if form.process().accepted:
+        session.flash = "Locação Realizada filme: %s" % form.vars.filmes
+        redirect(URL('new_location'))
+    elif form.errors:
+        response.flash = 'Algum erro no formulário foi encontrado'
+    else:
+        response.flash = 'Preencha o formulário'
+    return dict(form=form)
+        
