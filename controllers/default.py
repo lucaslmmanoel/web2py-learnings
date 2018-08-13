@@ -78,4 +78,3 @@ def new_location():
     else:
         response.flash = 'Preencha o formulário'
     return dict(form=form)
-        
