@@ -133,9 +133,7 @@ if configuration.get('scheduler.enabled'):
     scheduler = Scheduler(db, heartbeat=configuration.get('scheduler.heartbeat'))
 # Creating the app tables
 
-
 # Filmes table
-
 Filmes = db.define_table('filmes',
 Field('titulo', 'string', label='Título'),
 Field('lancamento', 'integer', label='Lançamento'),
@@ -147,7 +145,6 @@ Field('capa', 'upload', label='Capa/Cartaz')
 
 
 # Stock table
-
 ItemsEstoque = db.define_table('items_estoque',
     Field('filme', 'reference filmes', label='Filme'),
     Field('quantidade', 'integer', label='Quantidade'),
@@ -156,7 +153,6 @@ ItemsEstoque = db.define_table('items_estoque',
 
 
 #location table
-
 Locacao = db.define_table('locacoes',
     Field('filmes', 'list:reference filmes', label='Filme'),
     Field('cliente', 'reference auth_user', label='Cliente'),
