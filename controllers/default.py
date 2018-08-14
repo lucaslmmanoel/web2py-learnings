@@ -28,21 +28,6 @@ def wiki():
 
 # ---- Action for login/register/etc (required for auth) -----
 def user():
-    """
-    exposes:
-    http://..../[app]/default/user/login
-    http://..../[app]/default/user/logout
-    http://..../[app]/default/user/register
-    http://..../[app]/default/user/profile
-    http://..../[app]/default/user/retrieve_password
-    http://..../[app]/default/user/change_password
-    http://..../[app]/default/user/bulk_register
-    use @auth.requires_login()
-        @auth.requires_membership('group name')
-        @auth.requires_permission('read','table name',record_id)
-    to decorate functions that need access control
-    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
-    """
     return dict(form=auth())
 
 @cache.action()
@@ -130,7 +115,7 @@ def new_moovie():
     form = SQLFORM(Filmes)
     if form.process().accepted:
         session.flash = 'Novo Filme inserido: %s' % form.vars.titulo
-        redirect(URL('new_moovie'))
+        redirect(URL('see_moovies'))
     elif form.errors:
         response.flash = 'Algum erro encontrado no formulário'
     else:
@@ -155,7 +140,7 @@ def edit_moovie():
     return dict(form=form)
 
 
-# Controller que realiza a exclusão de 
+# Controller que realiza a exclusão de um filme
 def delete_moovie():
     db = (Filmes.id==request.args(0, cast=int).delete())
     session.flash = "O filme foi apagado"
